@@ -9,34 +9,42 @@ function Store (minCustomers, maxCustomers, avgCookies, location){
   this.avgCookies = avgCookies;
   this.location = location;
   this.perHourArray = [];
+  this.daySum = 0;
+  this.cookiesPerHour();
+  this.totalForDay();
   allStores.push(this);
 };
 
 Store.prototype.randNum = function(){
   return Math.floor(Math.random() * (this.maxCustomers - this.minCustomers + 1)) + this.minCustomers;
 };
-/*
+
 Store.prototype.totalForDay = function(){
-  var daySum = 0;
-  for (var i in hours){
-    daySum += (cookiesPerHour())[i];
+  for (var i = 0; i < hours.length; i++){
+    this.daySum += (this.perHourArray[i]);
   }
-  allStores.push(daySum);
+  return this.daySum;
 };
-*/
+
 Store.prototype.cookiesPerHour = function() {
-  for (var i in hours){
-    this.perHourArray[i].push(Math.floor(randNum() * this.avgCookies));
+  for (var i = 0; i < hours.length; i++){
+    var numCust = this.randNum();
+    this.perHourArray.push(Math.floor(numCust * this.avgCookies));
   }
 };
 
 new Store(23, 65, 6.3, '1st and Pike');
+
+console.log(allStores);
+
+/*
 new Store(3, 24, 1.2, 'SeaTac International Airport');
 new Store(11, 38, 3.7, 'Seattle Center');
 new Store(20, 38, 2.3, 'Capitol Hill');
 new Store(2, 16, 4.6, 'Alki Beach');
 console.log(allStores);
-/*
+
+
 
 var alki = {
 
