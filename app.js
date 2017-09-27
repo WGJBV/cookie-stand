@@ -65,13 +65,43 @@ function makeHeaderRow () {
     trEl.appendChild(thEl);
   }
   thEl = document.createElement('td');
-  thEl.textContent = 'Total Cookies';
+  thEl.textContent = 'Daily Location Totals';
   trEl.appendChild(thEl);
   storeTable.appendChild(trEl);
 }
+
 makeHeaderRow();
 new Store(23, 65, 6.3, '1st and Pike');
-new Store(3, 24, 1.2, 'SeaTac International Airport');
+new Store(3, 24, 1.2, 'SeaTac');
 new Store(11, 38, 3.7, 'Seattle Center');
 new Store(20, 38, 2.3, 'Capitol Hill');
 new Store(2, 16, 4.6, 'Alki Beach');
+makeFooterRow();
+
+function makeFooterRow () {
+  var hourlyTotalsArray = [];
+  for (var j = 0; j < hours.length; j++){
+    var hourlyTotal = 0;
+    for (var k = 0; k < allStores.length; k++){
+      hourlyTotal += allStores[k].perHourArray[j];
+    }
+    hourlyTotalsArray.push(hourlyTotal);
+  }
+  var totalTotal = 0;
+  for (var l = 0; l < allStores.length; l++){
+    totalTotal += allStores[l].daySum;
+  }
+  var trEl = document.createElement('tr');
+  var thEl = document.createElement('th');
+  thEl.textContent = 'Total';
+  trEl.appendChild(thEl);
+  for(var i = 0; i < hours.length; i++){
+    thEl = document.createElement('th');
+    thEl.textContent = hourlyTotalsArray[i];
+    trEl.appendChild(thEl);
+  }
+  thEl = document.createElement('td');
+  thEl.textContent = totalTotal;
+  trEl.appendChild(thEl);
+  storeTable.appendChild(trEl);
+}
