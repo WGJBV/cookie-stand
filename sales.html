@@ -6,6 +6,20 @@
   </head>
   <body>
     <table id="stores"></table>
+    <form id="userForm">
+      <fieldset>
+        <legend>Enter New Store Data!</legend>
+        <label for="storeName">Store name:</label>
+        <input id="submitName" name="submitName" type="text">
+        <label for="minimumCustomers">Minimum Customers:</label>
+        <input id="submitMin" name="submitMin" type="number">
+        <label for="maximumCustomers">Maximum Customers:</label>
+        <input id="submitMax" name="submitMax" type="number">
+        <label for="avgCookies">Average Cookies Purchased:</label>
+        <input id="submitAvgCookies" name="submitAvgCookies" type="number">
+        <button id="saveStore" type="submit">Save</button>
+      </fieldset>
+    </form>
     <script type="text/javascript" src="app.js">
     </script>
   </body>
