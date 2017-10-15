@@ -1,3 +1,24 @@
 table {
   border : 20px;
+  color: salmon;
+}
+h1 {
+  color: salmon;
+  width: 500px;
+}
+body {
+  background-color: teal;
+}
+p {
+  color: salmon;
+  font-size: 18px;
+}
+h2 {
+  color: salmon;
+}
+#top {
+  display: inline-block;
+}
+form {
+  color: salmon;
 }
