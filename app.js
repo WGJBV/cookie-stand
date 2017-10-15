@@ -32,8 +32,10 @@ Store.prototype.totalForDay = function(){
 Store.prototype.cookiesPerHour = function() {
   for (var i = 0; i < hours.length; i++){
     var numCust = this.randNum();
+    console.log(numCust);
     this.perHourArray.push(Math.floor(numCust * this.avgCookies));
   }
+  console.log(this.perHourArray);
 };
 //Function that renders the data inputs
 Store.prototype.render = function() {
